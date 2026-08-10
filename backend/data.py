@@ -20,7 +20,7 @@ BASE_URL = "https://api.twelvedata.com/time_series"
 # care nu sunt disponibile ca CFD-uri universale într-un feed gratuit.
 INSTRUMENTS = {
     "GOLD": "XAU/USD",
-    "SILVER": "XAG/USD",
+    "SILVER": "SLV",
     "OIL": "USO",           # United States Oil Fund
     "COPPER": "CPER",       # United States Copper Index Fund
     "US30": "DIA",          # ETF care urmărește Dow Jones (US30)
