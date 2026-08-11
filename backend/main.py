@@ -91,7 +91,6 @@ def build_dashboard():
         "note": "Date de la Twelve Data (forex + ETF-uri proxy pentru US30/Nasdaq/commodity). Folosește pentru bias/context; confirmă entry-ul pe MT5/TradingView.",
         "components": {
             "gold_vs_usd": {"score": s_gold_usd, "note": n_gold_usd},
-            "gold_vs_silver": {"score": s_gold_silver, "note": n_gold_silver},
             "gold_vs_yields": {"score": s_gold_yields, "note": n_gold_yields},
             "us30_vs_nas100": {"score": s_us30_nas, "note": n_us30_nas},
             "risk_sentiment": {"score": s_risk, "note": n_risk},
