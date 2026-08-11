@@ -49,14 +49,14 @@ def adx_atr(df: pd.DataFrame, period: int = 14):
 
 
 # ---------------------------------------------------------------------------
-# 1. Confirmare vs divergenta intre doua active (folosit pentru DXY/Silver/Yields)
+# 1. Confirmare vs divergenta intre doua active (folosit pentru DXY/Yields)
 # ---------------------------------------------------------------------------
 
 def confirmation_score(primary_move: float, secondary_move: float, relationship: str):
     """
     relationship: 'inverse' (normal invers) sau 'direct' (normal impreuna).
     Divergenta de la relatia normala = semnal SLAB (mai putina incredere),
-    nu contrariul - o miscare gold neconfirmata de DXY/silver/yields e suspecta.
+    nu contrariul - o miscare gold neconfirmata de DXY/yields e suspecta.
     """
     dp, ds = direction(primary_move), direction(secondary_move)
     if dp == 0:
