@@ -25,7 +25,7 @@ MOVE_WINDOW = 5  # bare (zile) folosite pentru momentum in scoruri
 FX_MAJORS = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "AUDUSD", "NZDUSD", "USDCAD"]
 JPY_CROSSES = ["USDJPY", "EURJPY", "GBPJPY", "AUDJPY", "CADJPY", "CHFJPY", "NZDJPY"]
 CORE_DAILY = [
-    "GOLD", "SILVER", "OIL", "COPPER", "US30", "NAS100", "US10Y_PROXY",
+    "GOLD", "OIL", "COPPER", "US30", "NAS100", "US10Y_PROXY",
 ] + list(set(FX_MAJORS + JPY_CROSSES))
 
 
@@ -39,12 +39,11 @@ def build_dashboard():
     usd_move = scoring.usd_basket_move(fx_moves)
 
     s_gold_usd, n_gold_usd = scoring.gold_vs_usd_basket(moves["GOLD"], usd_move)
-    s_gold_silver, n_gold_silver = scoring.gold_vs_silver(moves["GOLD"], moves["SILVER"])
     s_gold_yields, n_gold_yields = scoring.gold_vs_yields(moves["GOLD"], moves["US10Y_PROXY"])
     s_us30_nas, n_us30_nas = scoring.us30_vs_nas100(moves["US30"], moves["NAS100"])
     s_usd, n_usd = scoring.usd_strength(fx_moves)
     s_jpy, n_jpy = scoring.jpy_strength(jpy_moves)
-    s_commodity, n_commodity = scoring.commodity_strength(moves["GOLD"], moves["SILVER"], moves["OIL"])
+    s_commodity, n_commodity = scoring.commodity_strength(moves["GOLD"], moves["OIL"])
 
     # Volatilitate realizata pe US30 (proxy pt VIX, care nu exista ca CFD la brokerii forex)
     us30_adx_series, us30_atr_series = scoring.adx_atr(daily["US30"])
@@ -59,7 +58,6 @@ def build_dashboard():
 
     component_scores = {
         "gold_vs_usd": s_gold_usd,
-        "gold_vs_silver": s_gold_silver,
         "gold_vs_yields": s_gold_yields,
         "us30_vs_nas100": s_us30_nas,
         "risk_sentiment": s_risk,
