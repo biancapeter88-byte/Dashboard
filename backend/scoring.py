@@ -97,9 +97,6 @@ def gold_vs_usd_basket(gold_move: float, usd_move: float):
     return confirmation_score(gold_move, usd_move, "inverse")
 
 
-def gold_vs_silver(gold_move: float, silver_move: float):
-    return confirmation_score(gold_move, silver_move, "direct")
-
 
 def gold_vs_yields(gold_move: float, bond_price_move: float):
     """bond_price_move = % change al prețului ETF-ului de obligațiuni TLT.
@@ -139,10 +136,10 @@ def jpy_strength(jpy_moves: dict):
     return round(score, 1), f"Medie egal-ponderata pe {len(contributions)} cross-uri JPY."
 
 
-def commodity_strength(gold_move: float, silver_move: float, oil_move: float):
-    dirs = [direction(x) for x in (gold_move, silver_move, oil_move)]
+def commodity_strength(gold_move: float, oil_move: float):
+    dirs = [direction(x) for x in (gold_move, oil_move)]
     nonzero = [d for d in dirs if d != 0]
-    avg_move = (gold_move + silver_move + oil_move) / 3
+    avg_move = (gold_move + oil_move) / 2
     if not nonzero:
         return 0.0, "Fara miscare semnificativa in complexul de marfuri."
     majority = max(set(nonzero), key=nonzero.count)
