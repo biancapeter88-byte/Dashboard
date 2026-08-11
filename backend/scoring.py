@@ -256,7 +256,6 @@ def day_type_score(intraday_df: pd.DataFrame, daily_df: pd.DataFrame, adx_daily_
 
 WEIGHTS = {
     "gold_vs_usd": 0.15,
-    "gold_vs_silver": 0.10,
     "gold_vs_yields": 0.10,
     "us30_vs_nas100": 0.10,
     "risk_sentiment": 0.15,
